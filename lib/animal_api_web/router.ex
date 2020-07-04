@@ -20,9 +20,11 @@ defmodule AnimalApiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", AnimalApiWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", AnimalApiWeb do
+    pipe_through :api
+
+    resources "/animals", AnimalController, except: [:new, :edit]
+  end
 
   # Enables LiveDashboard only for development
   #
